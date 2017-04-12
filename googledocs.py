@@ -1,12 +1,11 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 
 import webbrowser
 import json
 import sys
 
-file = sys.stdin.readline().rstrip()
-if file:
-    with open(file, encoding='utf-8') as f:
+if len(sys.argv) > 1:
+    with open(sys.argv[1]) as f:
         data = json.load(f)
     url = data['url']
 else:

@@ -59,29 +59,25 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>COMMAND_STRING</key>
-					<string>googledocs="
+					<string>
 import webbrowser
 import json
 import sys
 
-file = sys.stdin.readline().rstrip()
-if file:
-    with open(file, encoding='utf-8') as f:
+if len(sys.argv) > 1:
+    with open(sys.argv[1]) as f:
         data = json.load(f)
     url = data['url']
 else:
     url = 'https://docs.google.com/'
 webbrowser.open(url)
-"
-
-/usr/local/bin/python3 -c "$googledocs"
 </string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>
 					<key>inputMethod</key>
-					<integer>0</integer>
+					<integer>1</integer>
 					<key>shell</key>
-					<string>/bin/bash</string>
+					<string>/usr/bin/python</string>
 					<key>source</key>
 					<string></string>
 				</dict>
