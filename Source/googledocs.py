@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
-import webbrowser
-import json
-import sys
+from webbrowser import open as browser
+from json import load
+from sys import argv
 
-if len(sys.argv) > 1:
-    with open(sys.argv[1]) as f:
-        data = json.load(f)
-    url = data['url']
+if len(argv) > 1:
+    for file in argv[1:]:
+        with open(file) as f:
+            data = load(f)
+        browser(data['url'])
 else:
-    url = 'https://docs.google.com/'
-webbrowser.open(url)
+    browser('https://docs.google.com/')
